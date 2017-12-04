@@ -68,25 +68,27 @@ void setup() {
       digitalWrite(Z_ENABLE_PIN,LOW);
   digitalWrite(Z_DIR_PIN,LOW);
   
-  Serial.begin(57600);
+  Serial.begin(115200);
+
+  Serial.setTimeout(50);
   //loop();
 }
 void runMotorX() {
     if(digitalRead(X_MAX_PIN) != 1)   
       digitalWrite(X_STEP_PIN,LOW);
-   delayMicroseconds(80);
+   delayMicroseconds(20);
   digitalWrite(X_STEP_PIN,HIGH);
 }
 void runMotorY() {
       if(digitalRead(Y_MAX_PIN) != 1)   
       digitalWrite(Y_STEP_PIN,LOW);
-   delayMicroseconds(80);
+   delayMicroseconds(20);
   digitalWrite(Y_STEP_PIN,HIGH);
 }
 void runMotorZ() {
       if(digitalRead(Z_MAX_PIN) != 1)   
       digitalWrite(Z_STEP_PIN,LOW);
-   delayMicroseconds(80);
+   delayMicroseconds(20);
   digitalWrite(Z_STEP_PIN,HIGH);
 }
 void runMotor() {

@@ -5,9 +5,8 @@ z = 0;
 x0 = 0;
 y0 = 1;
 z0 = 0;
-
-s = serial('/dev/ttyUSB2');
-set(s,'BaudRate',57600);
+s = serial('/dev/ttyUSB4');
+set(s,'BaudRate',115200);
 fopen(s);
 
 for t=0:0.1:10
@@ -15,14 +14,12 @@ for t=0:0.1:10
     y = cos(t);
     z = t;
     
-    
-    
-    a=ceil([x-x0 y-y0 z-z0]*1000)   
+    a=ceil([x-x0 y-y0 z-z0]*100)   
     str = sprintf('x %d y %d z %d\n',a(1),a(2),a(3))
     fprintf(s, str);
     plot3(x,y,z,'o');
     hold on;
-    pause(0.3);
+    pause(.7);
     
     x0 = x;
     y0 = y;
