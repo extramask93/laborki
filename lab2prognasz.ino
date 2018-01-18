@@ -20,7 +20,6 @@
 #define Z_CS_PIN           40
 
 
-
 int x=0; int y=0; int z=0;
 int ax=0;  int ay=0;  int az=0;
 int total=0;
@@ -125,7 +124,7 @@ void initPos()
   digitalWrite(X_DIR_PIN,HIGH);
   digitalWrite(Y_DIR_PIN,HIGH);
   digitalWrite(Z_DIR_PIN,HIGH);
-  for(int i=0;i<13000;i++)
+  for(int i=0;i<20000;i++)
     runMotorDown();
 }
 void loop() {
@@ -142,8 +141,8 @@ void loop() {
           sscanf(buf, "x %d y %d z %d", &x, &y, &z);
           flag =1;
           memset(buf,0,sizeof(buf));
-            sprintf(bf2,"%d %d %d",x,y,z);
-          Serial.print(bf2);
+          //sprintf(bf2,"%d %d %d",x,y,z);
+          //Serial.print(bf2);
       }
   }
   ax = abs(x);
